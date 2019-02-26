@@ -28,12 +28,10 @@ $ cp $GOPATH/src/github.com/xo/xo/templates/xo* db/xo/templates/
 $ xo mysql://root:root@localhost/sample -o src/model/ --template-path db/xo/templates/
 ```
 
-なぜかモデル出力でエラーが発生する。
+なぜかモデル出力でエラーが発生する。環境の問題？　→　go version go1.9.2 windows/amd64。
 ```
 error: model/goosedbversion.xo.go:147:1: expected declaration, found 'IDENT' postgres
 model/goosesample.xo.go:140:1: expected declaration, found 'IDENT' postgres
 model/test.xo.go:145:1: expected declaration, found 'IDENT' postgres
 ```
-対象のファイルの末尾に "postgres.index.go.tpl" が挿入されている行がコンパイルエラーになるので消すと、一応は動く・・・。
-
-環境は go version go1.9.2 windows/amd64 なんですけど、だれかご存知の方おしえてください(;´Д｀)
+対象のファイルの末尾に "postgres.index.go.tpl" が挿入されている行がコンパイルエラーになるので消すと、一応は動くが・・・。
